@@ -1,0 +1,16 @@
+/Users/macbook/Desktop/Project/Mediaine/Mediaine.Application/bin/Debug/net9.0/Mediaine.Application.deps.json
+/Users/macbook/Desktop/Project/Mediaine/Mediaine.Application/bin/Debug/net9.0/Mediaine.Application.dll
+/Users/macbook/Desktop/Project/Mediaine/Mediaine.Application/bin/Debug/net9.0/Mediaine.Application.pdb
+/Users/macbook/Desktop/Project/Mediaine/Mediaine.Application/bin/Debug/net9.0/Mediaine.Domain.dll
+/Users/macbook/Desktop/Project/Mediaine/Mediaine.Application/bin/Debug/net9.0/Mediaine.Domain.pdb
+/Users/macbook/Desktop/Project/Mediaine/Mediaine.Application/obj/Debug/net9.0/Mediaine.Application.csproj.AssemblyReference.cache
+/Users/macbook/Desktop/Project/Mediaine/Mediaine.Application/obj/Debug/net9.0/Mediaine.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/macbook/Desktop/Project/Mediaine/Mediaine.Application/obj/Debug/net9.0/Mediaine.Application.AssemblyInfoInputs.cache
+/Users/macbook/Desktop/Project/Mediaine/Mediaine.Application/obj/Debug/net9.0/Mediaine.Application.AssemblyInfo.cs
+/Users/macbook/Desktop/Project/Mediaine/Mediaine.Application/obj/Debug/net9.0/Mediaine.Application.csproj.CoreCompileInputs.cache
+/Users/macbook/Desktop/Project/Mediaine/Mediaine.Application/obj/Debug/net9.0/Mediaine.Application.sourcelink.json
+/Users/macbook/Desktop/Project/Mediaine/Mediaine.Application/obj/Debug/net9.0/Mediaine.A65FE745.Up2Date
+/Users/macbook/Desktop/Project/Mediaine/Mediaine.Application/obj/Debug/net9.0/Mediaine.Application.dll
+/Users/macbook/Desktop/Project/Mediaine/Mediaine.Application/obj/Debug/net9.0/refint/Mediaine.Application.dll
+/Users/macbook/Desktop/Project/Mediaine/Mediaine.Application/obj/Debug/net9.0/Mediaine.Application.pdb
+/Users/macbook/Desktop/Project/Mediaine/Mediaine.Application/obj/Debug/net9.0/ref/Mediaine.Application.dll
