@@ -1,0 +1,27 @@
+using MediatR;
+using Mediaine.Application.Requests.Profile;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Mediaine.API.Controllers;
+
+[ApiController]
+[Route("api/[controller]")]
+[Authorize]
+public class ProfileController : ControllerBase
+{
+    private readonly IMediator _mediator;
+
+    public ProfileController(IMediator mediator)
+    {
+        _mediator = mediator;
+    }
+
+    [HttpGet("me")]
+    public async Task<IActionResult> Me()
+    {
+        var result = await _mediator.Send(new GetCurrentUserProfileRequest());
+        if (result is null) return Unauthorized();
+        return Ok(result);
+    }
+}

@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "bAzjQIKJyu4=",
+  "dgSpecHash": "GUUmVqKKyQk=",
   "success": true,
   "projectFilePath": "/Users/macbook/Desktop/Project/Mediaine/Mediaine.Application/Mediaine.Application.csproj",
   "expectedPackageFiles": [
     "/Users/macbook/.nuget/packages/automapper/16.1.1/automapper.16.1.1.nupkg.sha512",
+    "/Users/macbook/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "/Users/macbook/.nuget/packages/fluentvalidation/12.1.1/fluentvalidation.12.1.1.nupkg.sha512",
     "/Users/macbook/.nuget/packages/fluentvalidation.dependencyinjectionextensions/12.1.1/fluentvalidation.dependencyinjectionextensions.12.1.1.nupkg.sha512",
     "/Users/macbook/.nuget/packages/mediatr/14.1.0/mediatr.14.1.0.nupkg.sha512",
@@ -19,5 +20,18 @@
     "/Users/macbook/.nuget/packages/microsoft.identitymodel.tokens/8.14.0/microsoft.identitymodel.tokens.8.14.0.nupkg.sha512",
     "/Users/macbook/.nuget/packages/system.diagnostics.diagnosticsource/10.0.0/system.diagnostics.diagnosticsource.10.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1608",
+      "level": "Warning",
+      "message": "Detected package version outside of dependency constraint: AutoMapper.Extensions.Microsoft.DependencyInjection 12.0.1 requires AutoMapper (= 12.0.1) but version AutoMapper 16.1.1 was resolved.",
+      "projectPath": "/Users/macbook/Desktop/Project/Mediaine/Mediaine.Application/Mediaine.Application.csproj",
+      "warningLevel": 1,
+      "filePath": "/Users/macbook/Desktop/Project/Mediaine/Mediaine.Application/Mediaine.Application.csproj",
+      "libraryId": "AutoMapper",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
 }
