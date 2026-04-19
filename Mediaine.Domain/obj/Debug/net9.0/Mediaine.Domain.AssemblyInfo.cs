@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mediaine.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a7690b0842ed0814038e34652ced14ca6689ff4b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b7389325237e1e190c455a124877bd6d5f572fd2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mediaine.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mediaine.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

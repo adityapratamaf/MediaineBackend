@@ -1,0 +1,91 @@
+# =========================
+# .NET / ASP.NET Core
+# =========================
+bin/
+obj/
+out/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / VS Code / Visual Studio
+.vs/
+.vscode/
+.idea/
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# Build & Publish
+# =========================
+publish/
+wwwroot/dist/
+wwwroot/lib/
+
+# =========================
+# Entity Framework
+# =========================
+Migrations/*.Designer.cs
+
+# (opsional kalau tidak mau commit migration)
+# Migrations/
+
+# =========================
+# Secrets & Config
+# =========================
+appsettings.Development.json
+appsettings.Local.json
+
+# user secrets
+secrets.json
+
+# environment variables
+.env
+
+# =========================
+# NuGet
+# =========================
+*.nupkg
+.nuget/
+packages/
+
+# =========================
+# Node (kalau ada frontend)
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================
+# Coverage / Test
+# =========================
+coverage/
+TestResults/
+
+# =========================
+# Temporary files
+# =========================
+*.tmp
+*.temp
+
+# =========================
+# Mac
+# =========================
+.AppleDouble
+.LSOverride
+
+# =========================
+# Visual Studio Code extensions
+# =========================
+.history/
