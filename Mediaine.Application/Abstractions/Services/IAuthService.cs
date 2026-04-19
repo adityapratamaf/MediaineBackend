@@ -1,7 +1,7 @@
 using Mediaine.Application.DTOs.Auth;
 using Mediaine.Application.DTOs.Profile;
 
-namespace Mediaine.Application.Interfaces;
+namespace Mediaine.Application.Abstractions.Services;
 
 public interface IAuthService
 {

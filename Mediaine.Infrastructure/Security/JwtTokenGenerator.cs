@@ -1,7 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Mediaine.Application.Interfaces;
+using Mediaine.Application.Abstractions.Security;
 using Mediaine.Domain.Entities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -38,7 +38,7 @@ public class JwtTokenGenerator : IJwtTokenGenerator
             issuer: jwtSettings["Issuer"],
             audience: jwtSettings["Audience"],
             claims: claims,
-            expires: DateTime.UtcNow.AddMinutes(15),
+            expires: DateTime.UtcNow.AddMinutes(5),
             signingCredentials: creds
         );
 

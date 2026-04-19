@@ -1,7 +1,9 @@
 using FluentValidation;
 using MediatR;
+using Mediaine.Application.Abstractions.Persistence;
+using Mediaine.Application.Abstractions.Security;
+using Mediaine.Application.Abstractions.Services;
 using Mediaine.Application.Behaviors;
-using Mediaine.Application.Interfaces;
 using Mediaine.Application.Mapping;
 using Mediaine.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,8 +25,8 @@ public static class DependencyInjection
 
         services.AddScoped<IAuthService, AuthService>();
         services.AddScoped<IMovieService, MovieService>();
-        // services.AddScoped<ICategoryService, CategoryService>();
-        // services.AddScoped<IUserService, UserService>();
+        services.AddScoped<ICategoryService, CategoryService>();
+        services.AddScoped<IUserService, UserService>();
 
         return services;
     }

@@ -1,4 +1,4 @@
-namespace Mediaine.Application.Interfaces;
+namespace Mediaine.Application.Abstractions.Common;
 
 public interface ICurrentUserService
 {

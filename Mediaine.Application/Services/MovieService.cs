@@ -1,6 +1,7 @@
 using AutoMapper;
 using Mediaine.Application.DTOs.Movie;
-using Mediaine.Application.Interfaces;
+using Mediaine.Application.Abstractions.Persistence;
+using Mediaine.Application.Abstractions.Services;
 using Mediaine.Domain.Entities;
 
 namespace Mediaine.Application.Services;
@@ -24,10 +25,10 @@ public class MovieService : IMovieService
         _mapper = mapper;
     }
 
-    public async Task<List<MovieDto>> GetAllAsync()
+    public async Task<IReadOnlyList<MovieDto>> GetAllAsync()
     {
         var movies = await _movieRepository.GetAllAsync();
-        return _mapper.Map<List<MovieDto>>(movies);
+        return _mapper.Map<IReadOnlyList<MovieDto>>(movies);
     }
 
     public async Task<MovieDto?> GetByIdAsync(int id)
@@ -52,7 +53,7 @@ public class MovieService : IMovieService
             UserId = user.Id
         };
 
-        var created = await _movieRepository.CreateAsync(movie);
+        var created = await _movieRepository.AddAsync(movie);
         var result = await _movieRepository.GetByIdAsync(created.Id) ?? created;
 
         return _mapper.Map<MovieDto>(result);

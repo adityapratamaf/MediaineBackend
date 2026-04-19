@@ -1,5 +1,7 @@
 using System.Text;
-using Mediaine.Application.Interfaces;
+using Mediaine.Application.Abstractions.Common;
+using Mediaine.Application.Abstractions.Security;
+using Mediaine.Application.Abstractions.Persistence;
 using Mediaine.Infrastructure.Persistence;
 using Mediaine.Infrastructure.Repositories;
 using Mediaine.Infrastructure.Security;

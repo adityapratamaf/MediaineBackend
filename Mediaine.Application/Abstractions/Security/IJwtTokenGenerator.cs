@@ -1,6 +1,6 @@
 using Mediaine.Domain.Entities;
 
-namespace Mediaine.Application.Interfaces;
+namespace Mediaine.Application.Abstractions.Security;
 
 public interface IJwtTokenGenerator
 {

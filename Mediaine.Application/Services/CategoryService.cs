@@ -1,6 +1,7 @@
 using AutoMapper;
+using Mediaine.Application.Abstractions.Services;
+using Mediaine.Application.Abstractions.Persistence;
 using Mediaine.Application.DTOs.Category;
-using Mediaine.Application.Interfaces;
 using Mediaine.Domain.Entities;
 
 namespace Mediaine.Application.Services;
@@ -16,10 +17,10 @@ public class CategoryService : ICategoryService
         _mapper = mapper;
     }
 
-    public async Task<List<CategoryDto>> GetAllAsync()
+    public async Task<IReadOnlyList<CategoryDto>> GetAllAsync()
     {
         var categories = await _categoryRepository.GetAllAsync();
-        return _mapper.Map<List<CategoryDto>>(categories);
+        return _mapper.Map<IReadOnlyList<CategoryDto>>(categories);
     }
 
     public async Task<CategoryDto?> GetByIdAsync(int id)
@@ -35,7 +36,7 @@ public class CategoryService : ICategoryService
             Name = name
         };
 
-        var created = await _categoryRepository.CreateAsync(category);
+        var created = await _categoryRepository.AddAsync(category);
         return _mapper.Map<CategoryDto>(created);
     }
 

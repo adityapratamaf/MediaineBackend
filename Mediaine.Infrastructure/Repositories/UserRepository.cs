@@ -1,4 +1,4 @@
-using Mediaine.Application.Interfaces;
+using Mediaine.Application.Abstractions.Persistence;
 using Mediaine.Domain.Entities;
 using Mediaine.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +14,7 @@ public class UserRepository : IUserRepository
         _context = context;
     }
 
-    public async Task<List<User>> GetAllAsync()
+    public async Task<IReadOnlyList<User>> GetAllAsync()
     {
         return await _context.Users.AsNoTracking().ToListAsync();
     }
@@ -29,7 +29,7 @@ public class UserRepository : IUserRepository
         return await _context.Users.FirstOrDefaultAsync(x => x.Email == email);
     }
 
-    public async Task<User> CreateAsync(User user)
+    public async Task<User> AddAsync(User user)
     {
         await _context.Users.AddAsync(user);
         await _context.SaveChangesAsync();

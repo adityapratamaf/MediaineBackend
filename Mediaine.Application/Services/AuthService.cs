@@ -1,6 +1,9 @@
 using Mediaine.Application.DTOs.Auth;
 using Mediaine.Application.DTOs.Profile;
-using Mediaine.Application.Interfaces;
+using Mediaine.Application.Abstractions.Services;
+using Mediaine.Application.Abstractions.Security;
+using Mediaine.Application.Abstractions.Common;
+using Mediaine.Application.Abstractions.Persistence;
 using Mediaine.Domain.Entities;
 
 namespace Mediaine.Application.Services;
@@ -50,7 +53,7 @@ public class AuthService : IAuthService
         return new AuthResponseDto
         {
             AccessToken = accessToken,
-            AccessTokenExpiresAt = DateTime.UtcNow.AddMinutes(15),
+            AccessTokenExpiresAt = DateTime.UtcNow.AddMinutes(5),
             RefreshTokenExpiresAt = refreshToken.ExpiresAt,
             UserId = user.Id,
             Name = user.Name,
@@ -87,7 +90,7 @@ public class AuthService : IAuthService
         return new AuthResponseDto
         {
             AccessToken = newAccessToken,
-            AccessTokenExpiresAt = DateTime.UtcNow.AddMinutes(15),
+            AccessTokenExpiresAt = DateTime.UtcNow.AddMinutes(5),
             RefreshTokenExpiresAt = newRefreshToken.ExpiresAt,
             UserId = user.Id,
             Name = user.Name,

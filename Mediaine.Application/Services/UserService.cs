@@ -1,6 +1,8 @@
 using AutoMapper;
 using Mediaine.Application.DTOs;
-using Mediaine.Application.Interfaces;
+using Mediaine.Application.Abstractions.Services;
+using Mediaine.Application.Abstractions.Security;
+using Mediaine.Application.Abstractions.Persistence;
 using Mediaine.Domain.Entities;
 
 namespace Mediaine.Application.Services;
@@ -21,10 +23,10 @@ public class UserService : IUserService
         _mapper = mapper;
     }
 
-    public async Task<List<UserDto>> GetAllAsync()
+    public async Task<IReadOnlyList<UserDto>> GetAllAsync()
     {
         var users = await _userRepository.GetAllAsync();
-        return _mapper.Map<List<UserDto>>(users);
+        return _mapper.Map<IReadOnlyList<UserDto>>(users);
     }
 
     public async Task<UserDto?> GetByIdAsync(int id)
@@ -47,7 +49,7 @@ public class UserService : IUserService
             Role = role
         };
 
-        var created = await _userRepository.CreateAsync(user);
+        var created = await _userRepository.AddAsync(user);
         return _mapper.Map<UserDto>(created);
     }
 

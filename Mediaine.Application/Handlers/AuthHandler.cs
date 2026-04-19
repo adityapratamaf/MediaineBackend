@@ -1,6 +1,6 @@
 using MediatR;
 using Mediaine.Application.DTOs.Auth;
-using Mediaine.Application.Interfaces;
+using Mediaine.Application.Abstractions.Services;
 using Mediaine.Application.Requests.Auth;
 
 namespace Mediaine.Application.Handlers;

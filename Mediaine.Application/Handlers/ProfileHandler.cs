@@ -1,6 +1,6 @@
 using MediatR;
 using Mediaine.Application.DTOs.Profile;
-using Mediaine.Application.Interfaces;
+using Mediaine.Application.Abstractions.Services;
 using Mediaine.Application.Requests.Profile;
 
 namespace Mediaine.Application.Handlers;

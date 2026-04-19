@@ -1,5 +1,5 @@
 using System.Security.Claims;
-using Mediaine.Application.Interfaces;
+using Mediaine.Application.Abstractions.Common;
 using Microsoft.AspNetCore.Http;
 
 namespace Mediaine.Infrastructure.Security;

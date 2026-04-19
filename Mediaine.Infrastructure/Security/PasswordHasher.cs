@@ -1,5 +1,4 @@
-using BCrypt.Net;
-using Mediaine.Application.Interfaces;
+using Mediaine.Application.Abstractions.Security;
 
 namespace Mediaine.Infrastructure.Security;
 

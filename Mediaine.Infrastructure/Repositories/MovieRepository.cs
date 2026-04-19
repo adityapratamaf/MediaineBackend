@@ -1,4 +1,4 @@
-using Mediaine.Application.Interfaces;
+using Mediaine.Application.Abstractions.Persistence;
 using Mediaine.Domain.Entities;
 using Mediaine.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +14,7 @@ public class MovieRepository : IMovieRepository
         _context = context;
     }
 
-    public async Task<List<Movie>> GetAllAsync()
+    public async Task<IReadOnlyList<Movie>> GetAllAsync()
     {
         return await _context.Movies
             .Include(x => x.Category)
@@ -30,7 +30,7 @@ public class MovieRepository : IMovieRepository
             .FirstOrDefaultAsync(x => x.Id == id);
     }
 
-    public async Task<Movie> CreateAsync(Movie movie)
+    public async Task<Movie> AddAsync(Movie movie)
     {
         await _context.Movies.AddAsync(movie);
         await _context.SaveChangesAsync();

@@ -1,13 +1,13 @@
 using Mediaine.Domain.Entities;
 
-namespace Mediaine.Application.Interfaces;
+namespace Mediaine.Application.Abstractions.Persistence;
 
 public interface IUserRepository
 {
-    Task<List<User>> GetAllAsync();
+    Task<IReadOnlyList<User>> GetAllAsync();
     Task<User?> GetByIdAsync(int id);
     Task<User?> GetByEmailAsync(string email);
-    Task<User> CreateAsync(User user);
+    Task<User> AddAsync(User user);
     Task UpdateAsync(User user);
 
     Task AddRefreshTokenAsync(RefreshToken refreshToken);
