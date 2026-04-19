@@ -1,9 +1,3 @@
-/Users/macbook/Desktop/Project/Mediaine/Mediaine.Infrastructure/obj/Debug/net9.0/Mediaine.Infrastructure.csproj.AssemblyReference.cache
-/Users/macbook/Desktop/Project/Mediaine/Mediaine.Infrastructure/obj/Debug/net9.0/Mediaine.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
-/Users/macbook/Desktop/Project/Mediaine/Mediaine.Infrastructure/obj/Debug/net9.0/Mediaine.Infrastructure.AssemblyInfoInputs.cache
-/Users/macbook/Desktop/Project/Mediaine/Mediaine.Infrastructure/obj/Debug/net9.0/Mediaine.Infrastructure.AssemblyInfo.cs
-/Users/macbook/Desktop/Project/Mediaine/Mediaine.Infrastructure/obj/Debug/net9.0/Mediaine.Infrastructure.csproj.CoreCompileInputs.cache
-/Users/macbook/Desktop/Project/Mediaine/Mediaine.Infrastructure/obj/Debug/net9.0/Mediaine.Infrastructure.sourcelink.json
 /Users/macbook/Desktop/Project/Mediaine/Mediaine.Infrastructure/bin/Debug/net9.0/Mediaine.Infrastructure.deps.json
 /Users/macbook/Desktop/Project/Mediaine/Mediaine.Infrastructure/bin/Debug/net9.0/Mediaine.Infrastructure.runtimeconfig.json
 /Users/macbook/Desktop/Project/Mediaine/Mediaine.Infrastructure/bin/Debug/net9.0/Mediaine.Infrastructure.dll
@@ -12,6 +6,12 @@
 /Users/macbook/Desktop/Project/Mediaine/Mediaine.Infrastructure/bin/Debug/net9.0/Mediaine.Domain.dll
 /Users/macbook/Desktop/Project/Mediaine/Mediaine.Infrastructure/bin/Debug/net9.0/Mediaine.Application.pdb
 /Users/macbook/Desktop/Project/Mediaine/Mediaine.Infrastructure/bin/Debug/net9.0/Mediaine.Domain.pdb
+/Users/macbook/Desktop/Project/Mediaine/Mediaine.Infrastructure/obj/Debug/net9.0/Mediaine.Infrastructure.csproj.AssemblyReference.cache
+/Users/macbook/Desktop/Project/Mediaine/Mediaine.Infrastructure/obj/Debug/net9.0/Mediaine.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/macbook/Desktop/Project/Mediaine/Mediaine.Infrastructure/obj/Debug/net9.0/Mediaine.Infrastructure.AssemblyInfoInputs.cache
+/Users/macbook/Desktop/Project/Mediaine/Mediaine.Infrastructure/obj/Debug/net9.0/Mediaine.Infrastructure.AssemblyInfo.cs
+/Users/macbook/Desktop/Project/Mediaine/Mediaine.Infrastructure/obj/Debug/net9.0/Mediaine.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/macbook/Desktop/Project/Mediaine/Mediaine.Infrastructure/obj/Debug/net9.0/Mediaine.Infrastructure.sourcelink.json
 /Users/macbook/Desktop/Project/Mediaine/Mediaine.Infrastructure/obj/Debug/net9.0/Mediaine.7E2D0655.Up2Date
 /Users/macbook/Desktop/Project/Mediaine/Mediaine.Infrastructure/obj/Debug/net9.0/Mediaine.Infrastructure.dll
 /Users/macbook/Desktop/Project/Mediaine/Mediaine.Infrastructure/obj/Debug/net9.0/refint/Mediaine.Infrastructure.dll
