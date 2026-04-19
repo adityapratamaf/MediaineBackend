@@ -12,6 +12,7 @@ public class UpdateCategoryValidator : AbstractValidator<UpdateCategoryRequest>
 
         RuleFor(x => x.Name)
             .NotEmpty()
+            .Must(x => x != "string")
             .MaximumLength(100);
     }
 }

@@ -9,6 +9,7 @@ public class CreateMovieValidator : AbstractValidator<CreateMovieRequest>
     {
         RuleFor(x => x.Title)
             .NotEmpty()
+            .Must(x => x != "string")
             .WithMessage("Title wajib diisi")
             .MaximumLength(150);
 
