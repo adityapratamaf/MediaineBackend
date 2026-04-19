@@ -9,4 +9,8 @@ public class CreateMovieRequest : IRequest<MovieDto>
     public decimal Price { get; set; }
     public int CategoryId { get; set; }
     public int UserId { get; set; }
+
+    public Stream? ImageStream { get; set; }
+    public string? ImageFileName { get; set; }
+    public string? ImageContentType { get; set; }
 }

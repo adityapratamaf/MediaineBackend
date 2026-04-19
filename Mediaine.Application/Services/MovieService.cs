@@ -50,7 +50,12 @@ public class MovieService : IMovieService
         return movie is null ? null : _mapper.Map<MovieDto>(movie);
     }
 
-    public async Task<MovieDto> CreateAsync(string title, decimal price, int categoryId, int userId)
+    public async Task<MovieDto> CreateAsync(
+        string title,
+        decimal price,
+        int categoryId,
+        int userId,
+        string? filePath)
     {
         var category = await _categoryRepository.GetByIdAsync(categoryId)
             ?? throw new Exception("Category tidak ditemukan");
@@ -63,7 +68,8 @@ public class MovieService : IMovieService
             Title = title,
             Price = price,
             CategoryId = category.Id,
-            UserId = user.Id
+            UserId = user.Id,
+            FilePath = filePath ?? string.Empty
         };
 
         var created = await _movieRepository.AddAsync(movie);
@@ -72,7 +78,13 @@ public class MovieService : IMovieService
         return _mapper.Map<MovieDto>(result);
     }
 
-    public async Task<MovieDto?> UpdateAsync(int id, string title, decimal price, int categoryId, int userId)
+    public async Task<MovieDto?> UpdateAsync(
+        int id,
+        string title,
+        decimal price,
+        int categoryId,
+        int userId,
+        string? filePath)
     {
         var movie = await _movieRepository.GetByIdAsync(id);
         if (movie is null) return null;
@@ -87,6 +99,11 @@ public class MovieService : IMovieService
         movie.Price = price;
         movie.CategoryId = category.Id;
         movie.UserId = user.Id;
+
+        if (!string.IsNullOrWhiteSpace(filePath))
+        {
+            movie.FilePath = filePath;
+        }
 
         await _movieRepository.UpdateAsync(movie);
 

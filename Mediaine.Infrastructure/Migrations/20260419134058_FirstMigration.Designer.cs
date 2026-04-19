@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Mediaine.Infrastructure.Migrations
 {
     [DbContext(typeof(MediaineDbContext))]
-    [Migration("20260418214606_FirstMigration")]
+    [Migration("20260419134058_FirstMigration")]
     partial class FirstMigration
     {
         /// <inheritdoc />
@@ -62,6 +62,10 @@ namespace Mediaine.Infrastructure.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");

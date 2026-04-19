@@ -18,6 +18,8 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.CategoryName,
                 opt => opt.MapFrom(src => src.Category != null ? src.Category.Name : string.Empty))
             .ForMember(dest => dest.UserName,
-                opt => opt.MapFrom(src => src.User != null ? src.User.Name : string.Empty));
+                opt => opt.MapFrom(src => src.User != null ? src.User.Name : string.Empty))
+            .ForMember(dest => dest.ImageUrl, 
+                opt => opt.MapFrom(src => src.FilePath));
     }
 }

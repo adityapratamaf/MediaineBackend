@@ -89,3 +89,9 @@ TestResults/
 # Visual Studio Code extensions
 # =========================
 .history/
+
+# =========================
+# File upload externals
+# =========================
+wwwroot/uploads/*
+!wwwroot/uploads/.gitkeep
