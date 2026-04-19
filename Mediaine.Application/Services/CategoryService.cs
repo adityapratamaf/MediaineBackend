@@ -1,6 +1,7 @@
 using AutoMapper;
 using Mediaine.Application.Abstractions.Services;
 using Mediaine.Application.Abstractions.Persistence;
+using Mediaine.Application.Common.Models;
 using Mediaine.Application.DTOs.Category;
 using Mediaine.Domain.Entities;
 
@@ -17,10 +18,23 @@ public class CategoryService : ICategoryService
         _mapper = mapper;
     }
 
-    public async Task<IReadOnlyList<CategoryDto>> GetAllAsync()
+    // ✅ PAGINATION + SEARCH
+    public async Task<PaginationResponse<CategoryDto>> GetAllAsync(int page, int pageSize, string? search)
     {
-        var categories = await _categoryRepository.GetAllAsync();
-        return _mapper.Map<IReadOnlyList<CategoryDto>>(categories);
+        if (page <= 0) page = 1;
+        if (pageSize <= 0) pageSize = 10;
+
+        var (items, totalData) = await _categoryRepository.GetPagedAsync(page, pageSize, search);
+
+        return new PaginationResponse<CategoryDto>
+        {
+            Items = _mapper.Map<IReadOnlyList<CategoryDto>>(items),
+            CurrentPage = page,
+            PageSize = pageSize,
+            TotalData = totalData,
+            TotalPages = (int)Math.Ceiling((double)totalData / pageSize),
+            Search = search
+        };
     }
 
     public async Task<CategoryDto?> GetByIdAsync(int id)

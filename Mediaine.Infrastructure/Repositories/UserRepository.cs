@@ -60,4 +60,33 @@ public class UserRepository : IUserRepository
         _context.RefreshTokens.Update(refreshToken);
         await _context.SaveChangesAsync();
     }
+
+    public async Task<(IReadOnlyList<User> Items, int TotalData)> GetPagedAsync(
+        int page,
+        int pageSize,
+        string? search)
+    {
+        var query = _context.Users.AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(search))
+        {
+            var keyword = search.Trim().ToLower();
+
+            query = query.Where(x =>
+                x.Name.ToLower().Contains(keyword) ||
+                x.Email.ToLower().Contains(keyword) ||
+                x.Role.ToLower().Contains(keyword));
+        }
+
+        var totalData = await query.CountAsync();
+
+        var items = await query
+            .AsNoTracking()
+            .OrderBy(x => x.Id)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        return (items, totalData);
+    }
 }

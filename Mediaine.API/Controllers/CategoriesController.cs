@@ -18,8 +18,11 @@ public class CategoriesController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAll()
-        => Ok(await _mediator.Send(new GetAllCategoriesRequest()));
+    public async Task<IActionResult> GetAll([FromQuery] GetAllCategoriesRequest request)
+    {
+        var result = await _mediator.Send(request);
+        return Ok(result);
+    }
 
     [Authorize(Roles = "Admin")]
     [HttpPost]

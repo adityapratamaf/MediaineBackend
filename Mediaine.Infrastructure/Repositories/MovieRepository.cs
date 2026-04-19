@@ -48,4 +48,33 @@ public class MovieRepository : IMovieRepository
         _context.Movies.Remove(movie);
         await _context.SaveChangesAsync();
     }
+
+    public async Task<(IReadOnlyList<Movie> Items, int TotalData)> GetPagedAsync(
+        int page,
+        int pageSize,
+        string? search)
+    {
+        var query = _context.Movies
+            .Include(x => x.Category)
+            .Include(x => x.User)
+            .AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(search))
+        {
+            var keyword = search.Trim().ToLower();
+
+            query = query.Where(x =>
+                x.Title.ToLower().Contains(keyword));
+        }
+
+        var totalData = await query.CountAsync();
+
+        var items = await query
+            .OrderBy(x => x.Id)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        return (items, totalData);
+    }
 }

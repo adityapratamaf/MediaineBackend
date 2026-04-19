@@ -2,6 +2,7 @@ using AutoMapper;
 using Mediaine.Application.DTOs;
 using Mediaine.Application.Abstractions.Services;
 using Mediaine.Application.Abstractions.Security;
+using Mediaine.Application.Common.Models;
 using Mediaine.Application.Abstractions.Persistence;
 using Mediaine.Domain.Entities;
 
@@ -23,10 +24,23 @@ public class UserService : IUserService
         _mapper = mapper;
     }
 
-    public async Task<IReadOnlyList<UserDto>> GetAllAsync()
+    // ✅ PAGINATION + SEARCH
+    public async Task<PaginationResponse<UserDto>> GetAllAsync(int page, int pageSize, string? search)
     {
-        var users = await _userRepository.GetAllAsync();
-        return _mapper.Map<IReadOnlyList<UserDto>>(users);
+        if (page <= 0) page = 1;
+        if (pageSize <= 0) pageSize = 10;
+
+        var (items, totalData) = await _userRepository.GetPagedAsync(page, pageSize, search);
+
+        return new PaginationResponse<UserDto>
+        {
+            Items = _mapper.Map<IReadOnlyList<UserDto>>(items),
+            CurrentPage = page,
+            PageSize = pageSize,
+            TotalData = totalData,
+            TotalPages = (int)Math.Ceiling((double)totalData / pageSize),
+            Search = search
+        };
     }
 
     public async Task<UserDto?> GetByIdAsync(int id)

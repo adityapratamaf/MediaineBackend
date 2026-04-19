@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mediaine.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c00151498a13e5f62df8e7e3a10a2fe1a81bdad0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a7690b0842ed0814038e34652ced14ca6689ff4b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mediaine.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mediaine.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

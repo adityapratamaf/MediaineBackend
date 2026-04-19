@@ -18,8 +18,11 @@ public class MoviesController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAll()
-        => Ok(await _mediator.Send(new GetAllMoviesRequest()));
+    public async Task<IActionResult> GetAll([FromQuery] GetAllMoviesRequest request)
+    {
+        var result = await _mediator.Send(request);
+        return Ok(result);
+    }
 
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)

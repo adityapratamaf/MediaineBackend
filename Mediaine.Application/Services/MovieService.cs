@@ -1,7 +1,8 @@
 using AutoMapper;
-using Mediaine.Application.DTOs.Movie;
 using Mediaine.Application.Abstractions.Persistence;
 using Mediaine.Application.Abstractions.Services;
+using Mediaine.Application.Common.Models;
+using Mediaine.Application.DTOs.Movie;
 using Mediaine.Domain.Entities;
 
 namespace Mediaine.Application.Services;
@@ -25,10 +26,22 @@ public class MovieService : IMovieService
         _mapper = mapper;
     }
 
-    public async Task<IReadOnlyList<MovieDto>> GetAllAsync()
+    public async Task<PaginationResponse<MovieDto>> GetAllAsync(int page, int pageSize, string? search)
     {
-        var movies = await _movieRepository.GetAllAsync();
-        return _mapper.Map<IReadOnlyList<MovieDto>>(movies);
+        if (page <= 0) page = 1;
+        if (pageSize <= 0) pageSize = 10;
+
+        var (items, totalData) = await _movieRepository.GetPagedAsync(page, pageSize, search);
+
+        return new PaginationResponse<MovieDto>
+        {
+            Items = _mapper.Map<IReadOnlyList<MovieDto>>(items),
+            CurrentPage = page,
+            PageSize = pageSize,
+            TotalData = totalData,
+            TotalPages = (int)Math.Ceiling((double)totalData / pageSize),
+            Search = search
+        };
     }
 
     public async Task<MovieDto?> GetByIdAsync(int id)
