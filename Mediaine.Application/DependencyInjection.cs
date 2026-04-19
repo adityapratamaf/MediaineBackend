@@ -1,7 +1,5 @@
 using FluentValidation;
 using MediatR;
-using Mediaine.Application.Abstractions.Persistence;
-using Mediaine.Application.Abstractions.Security;
 using Mediaine.Application.Abstractions.Services;
 using Mediaine.Application.Behaviors;
 using Mediaine.Application.Mapping;

@@ -127,4 +127,51 @@ public class AuthService : IAuthService
             Role = user.Role
         };
     }
+
+    public async Task<AuthResponseDto> RegisterAsync(string name, string email, string password)
+    {
+        var existingUser = await _userRepository.GetByEmailAsync(email);
+        if (existingUser is not null)
+            throw new Exception("Email sudah terdaftar");
+
+        var user = new User
+        {
+            Name = name,
+            Email = email,
+            PasswordHash = _passwordHasher.HashPassword(password),
+            Role = "User"
+        };
+
+        var created = await _userRepository.AddAsync(user);
+
+        var accessToken = _jwtTokenGenerator.GenerateAccessToken(created);
+        var refreshToken = _jwtTokenGenerator.GenerateRefreshToken();
+
+        var accessTokenExpiresAt = DateTime.UtcNow.AddMinutes(60); // sesuaikan
+        var refreshTokenExpiresAt = DateTime.UtcNow.AddDays(7);
+
+        var refreshTokenEntity = new RefreshToken
+        {
+            Token = refreshToken,
+            UserId = created.Id,
+            ExpiresAt = refreshTokenExpiresAt,
+            IsRevoked = false
+        };
+
+        await _userRepository.AddRefreshTokenAsync(refreshTokenEntity);
+        
+        return new AuthResponseDto
+        {
+            AccessToken = accessToken,
+            RefreshToken = refreshToken,
+
+            AccessTokenExpiresAt = accessTokenExpiresAt,
+            RefreshTokenExpiresAt = refreshTokenExpiresAt,
+
+            UserId = created.Id,
+            Name = created.Name,
+            Email = created.Email,
+            Role = created.Role
+        };
+    }
 }
