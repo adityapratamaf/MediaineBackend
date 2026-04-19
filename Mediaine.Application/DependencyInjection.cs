@@ -15,7 +15,7 @@ public static class DependencyInjection
         services.AddMediatR(cfg =>
             cfg.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly));
 
-        services.AddAutoMapper(typeof(MappingProfile));
+        services.AddAutoMapper(cfg => { }, typeof(MappingProfile).Assembly);
 
         services.AddValidatorsFromAssembly(typeof(DependencyInjection).Assembly);
 
